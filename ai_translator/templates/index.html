@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Translator</title>
+</head>
+<body>
+    <h1>PDF Translation Service</h1>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+    <form method="POST" action="{{ url_for('translate_pdf') }}">
+        <label for="source_pdf">Source PDF:</label>
+        <input type="text" name="source_pdf" id="source_pdf" required><br><br>
+        <label for="dest_pdf">Destination PDF:</label>
+        <input type="text" name="dest_pdf" id="dest_pdf" required><br><br>
+        <label for="target_lang">Target Language:</label>
+        <input type="text" name="target_lang" id="target_lang" required><br><br>
+        <button type="submit">Translate</button>
+    </form>
+</body>
+</html>
+
